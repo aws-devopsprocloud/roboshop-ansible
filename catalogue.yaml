@@ -1,0 +1,8 @@
+- name: Catalogue 
+  hosts: catalogue 
+  become: yes 
+  tasks:
+  - name: Disabling Old NodeJS and Enabling NodeJS:20
+    ansible.builtin.command: dnf module disable nodejs -y ; dnf module enable nodejs:20 -y
+
+  
