@@ -24,6 +24,17 @@
       url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
       dest: /tmp/catalogue.zip 
 
+  - name: Unzipping catalogue.zip 
+    ansible.builtin.unarchive:
+      src: /tmp/catalogue.zip
+      dest: /app
+      remote_src: yes
+  
+  - name: Installing dependencies
+    community.general.npm:
+      path: /app
+   
+
   - name: Copying catalogue.service file 
     ansible.builtin.copy:
       src: catalogue.service
