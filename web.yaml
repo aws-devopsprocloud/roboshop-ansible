@@ -23,7 +23,7 @@
   - name: Downloading web.zip
     ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
-      dest: /tmp/
+      dest: /tmp/web.zip
   
   - name: Unzipping web.zip 
     ansible.builtin.unarchive:
@@ -35,7 +35,7 @@
       src: nginx.conf 
       dest: /etc/nginx/nginx.conf
 
-  - name: Starting and Enabling teh nginx 
+  - name: Starting and Enabling the nginx 
     ansible.builtin.service:
       name: nginx 
       enabled: yes
