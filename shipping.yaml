@@ -48,7 +48,7 @@
     ansible.builtin.systemd_service:
       daemon_reload: true 
 
-  - name: Installing Maven 
+  - name: Installing mysql 
     ansible.builtin.dnf:
       name: mysql 
       state: present 
@@ -58,15 +58,15 @@
     register: cities_schema
 
   - name: Loading schema into mysql database
-    ansible.builtin.command: mysql -h mysql.devopsprocloud.in -uroot -p{{mysql_root_password}} < /app/db/schema.sql
+    ansible.builtin.shell: mysql -h mysql.devopsprocloud.in -uroot -p{{mysql_root_password}} < /app/db/schema.sql
     when: cities_schema.stdout == "0"
 
   - name: Loading app-user schema into mysql database 
-    ansible.builtin.command: mysql -h mysql.devopsprocloud.in -uroot -p{{mysql_root_password}} < /app/db/app-user.sql
+    ansible.builtin.shell: mysql -h mysql.devopsprocloud.in -uroot -p{{mysql_root_password}} < /app/db/app-user.sql
     when: cities_schema.stdout == "0"
 
   - name: Loading master-data schema into mysql database 
-    ansible.builtin.command: mysql -h mysql.devopsprocloud.in -uroot -p{{mysql_root_password}} < /app/db/master-data.sql
+    ansible.builtin.shell: mysql -h mysql.devopsprocloud.in -uroot -p{{mysql_root_password}} < /app/db/master-data.sql
     when: cities_schema.stdout == "0"
 
   - name: Restarting and enabling shipping 
