@@ -63,7 +63,7 @@
   
   - name: loading catalogue data into MongoDB 
     ansible.builtin.shell: mongosh --host mongodb.devopsprocloud.in </app/db/master-data.js
-    when: catalogue_count.stdout == "0"
+    when: catalogue_count.stdout == "-1"
   
   - name: Starting catalogue
     ansible.builtin.service:
