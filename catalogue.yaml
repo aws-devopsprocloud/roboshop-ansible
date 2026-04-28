@@ -54,7 +54,7 @@
       state: present 
 
   - name: loading catalogue data into MongoDB 
-    ansible.builtin.command: mongosh --host mongodb.devopsprocloud.in </app/db/master-data.js
+    ansible.builtin.command: mongosh --host mongodb.devopsprocloud.in < /app/db/master-data.js
 
   
 
