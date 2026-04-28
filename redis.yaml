@@ -3,7 +3,7 @@
   become: yes 
   tasks:
   - name: Disabling the old redis version and enabling Redis:7 
-    ansible.builtin.command: dnf module disable redis -y ; dnf module enable redis:7 -y
+    ansible.builtin.shell: dnf module disable redis -y ; dnf module enable redis:7 -y
   
   - name: Installing redis 
     ansible.builtin.dnf:
