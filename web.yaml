@@ -29,6 +29,7 @@
     ansible.builtin.unarchive:
       src: /tmp/web.zip 
       dest: /usr/share/nginx/html/web.zip 
+      remote_src: yes 
 
   - name: Copying nginx.conf 
     ansible.builtin.copy:
