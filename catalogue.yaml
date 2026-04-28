@@ -32,8 +32,7 @@
   
   - name: Installing dependencies
     community.general.npm:
-      path: /app
-   
+      path: /app   
 
   - name: Copying catalogue.service file 
     ansible.builtin.copy:
@@ -54,6 +53,8 @@
       name: mongodb-mongosh
       state: present 
 
+  - name: loading catalogue data into MongoDB 
+    ansible.builtin.command: mongosh --host mongodb.devopsprocloud.in </app/db/master-data.js
 
   
 
