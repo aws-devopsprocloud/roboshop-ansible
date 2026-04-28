@@ -53,6 +53,14 @@
       name: mongodb-mongosh
       state: present 
 
+  - name: Get the Products Count 
+    ansible.builtin.command: mongosh --host mongodb.devopsprocloud.in 'db.getMongo().getDBNames().indexOf("catalogue")'
+    register: catalogue_count
+
+  - name: Read catalogue Count 
+    ansible.builtin.debug:
+      msg: "Catalogue Count is : {{catalogue_count}}"
+  
   - name: loading catalogue data into MongoDB 
     ansible.builtin.command: mongosh --host mongodb.devopsprocloud.in < /app/db/master-data.js
 
