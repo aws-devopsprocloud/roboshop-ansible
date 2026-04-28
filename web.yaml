@@ -3,7 +3,7 @@
   become: yes 
   tasks:
   - name: Disable Nginix and Enable Nginx:1.24
-    ansible.builtin.command: dnf module disable nginx -y ; dnf module enable nginx:1.24 -y
+    ansible.builtin.shell: dnf module disable nginx -y ; dnf module enable nginx:1.24 -y
   
   - name: installing nginx 
     ansible.builtin.dnf:
