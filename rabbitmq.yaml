@@ -19,4 +19,7 @@
       enabled: yes 
   
   - name: Adding roboshop user credentials and setting up permissions
-    ansible.builtin.command: rabbitmqctl add_user roboshop roboshop123 ; rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+    ansible.builtin.shell: rabbitmqctl add_user roboshop roboshop123
+    
+  - name: Setting up permissions
+    ansible.builtin.shell: rabbitmqctl add_user roboshop roboshop123 
