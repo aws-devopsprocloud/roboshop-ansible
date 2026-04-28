@@ -54,7 +54,7 @@
       state: present 
 
   - name: Get the Products Count 
-    ansible.builtin.command: mongosh --host mongodb.devopsprocloud.in 'db.getMongo().getDBNames().indexOf("catalogue")'
+    ansible.builtin.command: mongosh --host "mongodb.devopsprocloud.in" 'db.getMongo().getDBNames().indexOf("catalogue")'
     register: catalogue_count
 
   - name: Read catalogue Count 
